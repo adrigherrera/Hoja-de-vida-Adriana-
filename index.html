@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Adriana Gonzales Herrera | Seguridad Industrial</title>
-    <!-- Importar fuente de Google (Roboto) -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Importar Chart.js para el gráfico de experiencia -->
+    <title>Manual SYSO - Expediente Adriana Gonzales Herrera</title>
+    <!-- Importar fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
-        /* Nueva paleta de colores: Profesional, Plomo y Rojo */
+        /* Paleta de colores */
         :root {
-            --bg-plomo: #F4F5F7; /* Plomo muy bajito/Gris claro para el fondo */
-            --text-black: #212121; /* Negro suave para evitar fatiga visual */
-            --text-gray: #546E7A; /* Plomo oscuro para subtítulos */
-            --accent-red: #D32F2F; /* Rojo corporativo (estilo Coca-Cola sutil) */
-            --card-bg: #FFFFFF; /* Fondo de la hoja en blanco puro */
-            --border-color: #E0E0E0; /* Líneas divisorias plomas */
+            --bg-plomo: #F4F5F7; 
+            --text-black: #212121; 
+            --text-gray: #546E7A; 
+            --accent-red: #D32F2F; 
+            --card-bg: #FFFFFF; 
+            --border-color: #E0E0E0; 
+            --border-dark: #212121;
         }
 
         body {
@@ -34,85 +34,193 @@
             margin: 0 auto;
             background: var(--card-bg);
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra suave */
-            border-top: 6px solid var(--accent-red); /* Detalle rojo en la parte superior */
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid var(--border-dark); /* Borde estilo documento impreso */
         }
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 5px;
+        /* DISEÑO DE CABECERA DE MANUAL ISO */
+        .hazard-tape {
+            height: 12px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--accent-red),
+                var(--accent-red) 15px,
+                var(--card-bg) 15px,
+                var(--card-bg) 30px
+            );
+            border-bottom: 2px solid var(--border-dark);
+            border-top: 2px solid var(--border-dark);
+            margin-bottom: 20px;
+        }
+
+        .manual-header {
+            display: flex;
+            border: 2px solid var(--border-dark);
+            margin-bottom: 30px;
+        }
+
+        .manual-title {
+            flex: 2;
+            padding: 15px;
+            border-right: 2px solid var(--border-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .manual-title h1 {
+            font-size: 1.8em;
+            margin: 0;
             color: var(--accent-red);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
-        h2 {
-            color: var(--text-gray);
-            font-weight: 400;
-            margin-top: 0;
-            font-size: 1.2em;
-        }
-
-        h3 {
-            color: var(--accent-red);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
-            margin-top: 30px;
-            font-size: 1.4em;
-        }
-
-        p, li {
+        .manual-title h2 {
+            font-size: 1em;
+            margin: 5px 0 0 0;
             color: var(--text-black);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .manual-meta {
+            flex: 1;
+            padding: 10px 15px;
+            font-family: 'Space Mono', monospace; /* Letra tipo máquina de escribir para códigos */
+            font-size: 0.85em;
+            background-color: #FAFAFA;
+        }
+
+        .manual-meta div {
+            border-bottom: 1px solid var(--border-color);
+            padding: 5px 0;
+        }
+
+        .manual-meta div:last-child {
+            border-bottom: none;
+        }
+
+        /* SECCIONES DEL MANUAL */
+        h3 {
+            color: var(--card-bg);
+            background-color: var(--accent-red);
+            padding: 8px 15px;
+            margin-top: 40px;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            border: 2px solid var(--border-dark);
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .contact-info {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-            font-size: 0.95em;
+            margin-bottom: 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9em;
+            background: #FAFAFA;
+            padding: 15px;
+            border: 1px solid var(--border-dark);
         }
 
-        .contact-info span {
-            background: var(--bg-plomo);
+        /* LÍNEA DE TIEMPO (RUTA DE INSPECCIÓN) */
+        .timeline {
+            position: relative;
+            margin: 20px 0 20px 15px;
+            padding-left: 30px;
+            border-left: 3px solid var(--text-gray);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '⚠️'; /* Icono de advertencia en lugar de un punto simple */
+            font-size: 1.2em;
+            position: absolute;
+            left: -42px;
+            top: 2px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent-red);
+            font-size: 0.95em;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .timeline-content h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.2em;
             color: var(--text-black);
-            padding: 6px 12px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
+            text-transform: uppercase;
+        }
+
+        .timeline-content h5 {
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            color: var(--text-gray);
             font-weight: 500;
         }
 
+        .timeline-sublist {
+            margin-top: 10px;
+            padding-left: 15px;
+            border-left: 2px dashed var(--border-dark);
+            list-style-type: none;
+        }
+        
+        .timeline-sublist li {
+            position: relative;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .timeline-sublist li::before {
+            content: '►';
+            color: var(--accent-red);
+            position: absolute;
+            left: -20px;
+            font-size: 0.8em;
+        }
+
+        /* GRÁFICO Y HABILIDADES */
         .chart-container {
-            background: #FAFAFA; /* Un plomo súper ligero para destacar el gráfico */
+            background: #FAFAFA;
             padding: 20px;
-            border-radius: 8px;
+            border: 2px solid var(--border-dark);
             margin: 20px 0;
-            border: 1px solid var(--border-color);
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
         }
 
         .skill-item {
             background: var(--card-bg);
-            border: 1px solid var(--accent-red);
-            color: var(--accent-red);
+            border: 2px solid var(--border-dark);
+            color: var(--text-black);
             padding: 10px;
             text-align: center;
-            border-radius: 6px;
             font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .skill-item:hover {
-            background: var(--accent-red);
-            color: var(--card-bg);
+            text-transform: uppercase;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9em;
+            border-left: 6px solid var(--accent-red);
         }
 
         a {
@@ -129,59 +237,104 @@
 <body>
 
 <div class="container">
-    <header>
-        <h1>Adriana Jhana Gonzales Herrera</h1>
-        <h2>Ingeniera Ambiental | Especialista en Seguridad Ocupacional (SYSO)</h2>
-        
-        <div class="contact-info">
-            <span>📍 La Paz, Bolivia</span>
-            <span>📱 60507792</span>
-            <span>✉️ <a href="mailto:herreragonadri@gmail.com">herreragonadri@gmail.com</a></span>
-            <span>RNI: 53304 | Reg. SYSO: 6415 "C"</span>
+    
+    <!-- CABECERA DE MANUAL ISO -->
+    <div class="hazard-tape"></div>
+    <div class="manual-header">
+        <div class="manual-title">
+            <h2>Manual de Seguridad y Procedimientos</h2>
+            <h1>Expediente: Adriana Gonzales</h1>
         </div>
-    </header>
+        <div class="manual-meta">
+            <div><strong>CÓDIGO:</strong> SYSO-AGH-001</div>
+            <div><strong>REVISIÓN:</strong> 01 - ACTUALIZADA</div>
+            <div><strong>ÁREA:</strong> PREVENCIÓN / SYSO</div>
+            <div><strong>ESTADO:</strong> APROBADO</div>
+        </div>
+    </div>
+    <div class="hazard-tape"></div>
 
     <section>
-        <h3>Perfil Profesional</h3>
-        <p>Licenciada en Ingeniería Ambiental con sólidos conocimientos y registros nacionales en Higiene, Seguridad Ocupacional y Medicina del Trabajo. Enfocada en la gestión de seguridad industrial, liderando con empatía, responsabilidad y toma de decisiones estratégicas para asegurar entornos laborales óptimos.</p>
+        <h3>1.0 Identificación del Personal Operativo</h3>
+        <div class="contact-info">
+            <div><strong>ID PROFESIONAL:</strong> Ing. Ambiental</div>
+            <div><strong>REGISTRO RNI:</strong> 53304</div>
+            <div><strong>REGISTRO SYSO:</strong> 6415 "C"</div>
+            <div><strong>BASE OP.:</strong> La Paz, Bolivia</div>
+            <div><strong>CONTACTO:</strong> 60507792</div>
+            <div><strong>CORREO:</strong> <a href="mailto:herreragonadri@gmail.com">herreragonadri@gmail.com</a></div>
+        </div>
+        <p><strong>RESUMEN TÉCNICO:</strong> Profesionista habilitada con sólidos conocimientos y registros nacionales en Higiene, Seguridad Ocupacional y Medicina del Trabajo. Capacitada para liderar inspecciones, gestionar normativas ambientales y ejecutar toma de decisiones estratégicas para asegurar cero incidentes en entornos laborales.</p>
     </section>
 
     <section>
-        <h3>Gráfico de Experiencia Laboral</h3>
-        <p>Distribución del tiempo (en meses) dedicado a principales proyectos y roles en Seguridad Industrial e Información.</p>
+        <h3>2.0 Registro de Operaciones (Experiencia)</h3>
+        
+        <div class="timeline">
+            <!-- Item 1 -->
+            <div class="timeline-item">
+                <div class="timeline-date">[ ENE 2026 - ACTUALIDAD ]</div>
+                <div class="timeline-content">
+                    <h4>Practicante en SSMA</h4>
+                    <h5>EMBOL S.A. (Operaciones Coca-Cola)</h5>
+                    <p>Apoyo en la gestión operativa, supervisión y control documental de normativas de Salud, Seguridad y Medio Ambiente.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="timeline-item">
+                <div class="timeline-date">[ NOV 2024 - MAY 2025 ]</div>
+                <div class="timeline-content">
+                    <h4>Consultor en Seguridad Ocupacional</h4>
+                    <h5>Equipo Multidisciplinario Rodriguez</h5>
+                    <p>Consultorías, auditorías y asesoramiento especializado para Import Exporta Ferma y Corimex Ltda.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="timeline-item">
+                <div class="timeline-date">[ AGO 2023 - JUN 2025 ]</div>
+                <div class="timeline-content">
+                    <h4>Consultorías de Línea (Gestión de Datos)</h4>
+                    <h5>Instituto Nacional de Estadística (INE)</h5>
+                    <ul class="timeline-sublist">
+                        <li><strong>Técnico en Contrastación de Datos</strong> (Jun 2025)</li>
+                        <li><strong>Supervisor de Verificación</strong> (Abr 2024 - Oct 2024)</li>
+                        <li><strong>Técnico Registrador</strong> (Nov 2023 - Mar 2024)</li>
+                        <li><strong>Transcriptor de Información</strong> (Ago 2023 - Sep 2024)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h3>3.0 Auditoría de Tiempos Operativos</h3>
+        <p>Distribución cuantitativa (en meses) de las misiones y proyectos ejecutados.</p>
         <div class="chart-container">
             <canvas id="experienciaChart"></canvas>
         </div>
     </section>
 
     <section>
-        <h3>Experiencia Destacada</h3>
+        <h3>4.0 Capacitación y Normativas Técnicas</h3>
         <ul>
-            <li><strong>Practicante en SSMA - EMBOL (Coca-Cola)</strong> | <em>Ene 2026 - Actualidad</em> <br>Gestión de Salud, Seguridad y Medio Ambiente.</li>
-            <li><strong>Consultora en Seguridad Ocupacional - Eq. Multidisciplinario Rodríguez</strong> | <em>Nov 2024 - May 2025</em> <br>Asesoría para Import Exporta Ferma y Corimex Ltda.</li>
-            <li><strong>Consultorías de Línea - Instituto Nacional de Estadística (INE)</strong> | <em>Ago 2023 - Jun 2025</em> <br>Técnico en Contrastación, Supervisor de Verificación y Técnico Registrador para el Censo de Población y Vivienda.</li>
+            <li><strong>Ingeniería Ambiental (Licenciatura)</strong> - UDABOL (2017-2021)</li>
+            <li><strong>Diplomado: Seguridad Industrial y Salud en el Trabajo</strong> - SIAC Bolivia / USFA (2023)</li>
+            <li><strong>Diplomado: Sistemas Integrados de Gestión Ambiental</strong> - UDABOL (2023)</li>
+            <li><strong>Curso: Seguridad Industrial</strong> - IBNORCA (Feb-Mar 2026)</li>
+            <li><strong>Certificación de Idioma: Inglés Superior</strong> - Centro Boliviano Americano (2014-2017)</li>
         </ul>
     </section>
 
     <section>
-        <h3>Educación y Certificaciones</h3>
-        <ul>
-            <li><strong>Licenciatura en Ingeniería Ambiental</strong> - UDABOL (2017-2021)</li>
-            <li><strong>Diplomado en Seguridad Industrial y Salud en el Trabajo</strong> - SIAC Bolivia / USFA (2023)</li>
-            <li><strong>Diplomado en Sistemas Integrados de Gestión Ambiental</strong> - UDABOL (2023)</li>
-            <li><strong>Curso Seguridad Industrial</strong> - IBNORCA (Feb-Mar 2026)</li>
-            <li><strong>Inglés (Nivel Superior)</strong> - Centro Boliviano Americano (2014-2017)</li>
-        </ul>
-    </section>
-
-    <section>
-        <h3>Aptitudes Clave</h3>
+        <h3>5.0 Competencias de Prevención y Liderazgo</h3>
         <div class="skills-grid">
-            <div class="skill-item">Liderazgo</div>
+            <div class="skill-item">Liderazgo de Brigadas</div>
             <div class="skill-item">Toma de Decisiones</div>
-            <div class="skill-item">Proactividad</div>
+            <div class="skill-item">Respuesta Proactiva</div>
             <div class="skill-item">Trabajo en Equipo</div>
-            <div class="skill-item">Responsabilidad</div>
+            <div class="skill-item">Responsabilidad SYSO</div>
         </div>
     </section>
 </div>
@@ -190,23 +343,18 @@
 <script>
     const ctx = document.getElementById('experienciaChart').getContext('2d');
     
-    // Datos basados en el CV
     const experienciaData = {
         labels: ['EMBOL SSMA', 'Consultora Seg. Ocupacional', 'INE (Varios Cargos)'],
         datasets: [{
-            label: 'Meses de Experiencia',
+            label: 'Meses Operativos',
             data: [6, 7, 22],
             backgroundColor: [
-                '#D32F2F', // Rojo corporativo para EMBOL
-                '#78909C', // Plomo medio para consultoría
-                '#B0BEC5'  // Plomo claro para INE
+                '#D32F2F', // Rojo
+                '#546E7A', // Plomo oscuro
+                '#B0BEC5'  // Plomo claro
             ],
-            borderColor: [
-                '#B71C1C',
-                '#546E7A',
-                '#78909C'
-            ],
-            borderWidth: 1
+            borderColor: '#212121', // Borde negro para estilo manual
+            borderWidth: 2
         }]
     };
 
@@ -220,19 +368,20 @@
                 legend: { display: false },
                 title: {
                     display: true,
-                    text: 'Duración de proyectos (Meses)',
-                    font: { size: 16, family: 'Roboto' },
+                    text: 'TIEMPO ACTIVO EN PROYECTOS (MESES)',
+                    font: { size: 14, family: 'Space Mono', weight: 'bold' },
                     color: '#212121'
                 }
             },
             scales: {
                 x: {
                     beginAtZero: true,
-                    title: { display: true, text: 'Meses', color: '#546E7A' },
-                    ticks: { color: '#212121' }
+                    title: { display: true, text: 'MESES', color: '#212121', font: { family: 'Space Mono', weight: 'bold' } },
+                    ticks: { color: '#212121', font: { family: 'Space Mono' } },
+                    grid: { color: '#E0E0E0' }
                 },
                 y: {
-                    ticks: { color: '#212121', font: { weight: 'bold' } }
+                    ticks: { color: '#212121', font: { weight: 'bold', family: 'Roboto' } }
                 }
             }
         }
