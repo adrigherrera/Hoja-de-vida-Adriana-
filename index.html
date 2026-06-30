@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Adriana Gonzales Herrera | Seguridad Industrial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        /* Paleta de colores sutil - Temática Coca-Cola / Industrial */
+        :root {
+            --bg-red: #8B0000; /* Rojo oscuro dominante y elegante */
+            --accent-red: #F40009; /* Rojo clásico sutil para detalles */
+            --text-light: #F8F9FA;
+            --steel-gray: #B0BEC5; /* Toque industrial */
+            --card-bg: rgba(255, 255, 255, 0.08); /* Efecto cristal para legibilidad */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--bg-red) 0%, #5c0000 100%);
+            color: var(--text-light);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-top: 4px solid var(--accent-red);
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 2px solid var(--steel-gray);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--steel-gray);
+            font-weight: 300;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        h3 {
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+
+        .contact-info span {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .chart-container {
+            background: white; /* Fondo blanco solo para el gráfico para que sea legible */
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: rgba(244, 0, 9, 0.2);
+            border: 1px solid var(--accent-red);
+            padding: 10px;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: var(--steel-gray);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Adriana Jhana Gonzales Herrera</h1>
+        <h2>Ingeniera Ambiental | Especialista en Seguridad Ocupacional (SYSO)</h2>
+        
+        <div class="contact-info">
+            <span>📍 La Paz, Bolivia</span>
+            <span>📱 60507792</span>
+            <span>✉️ <a href="mailto:herreragonadri@gmail.com">herreragonadri@gmail.com</a></span>
+            <span>RNI: 53304 | Reg. SYSO: 6415 "C"</span>
+        </div>
+    </header>
+
+    <section>
+        <h3>Perfil Profesional</h3>
+        <p>Licenciada en Ingeniería Ambiental con sólidos conocimientos y registros nacionales en Higiene, Seguridad Ocupacional y Medicina del Trabajo. Enfocada en la gestión de seguridad industrial, liderando con empatía, responsabilidad y toma de decisiones estratégicas para asegurar entornos laborales óptimos.</p>
+    </section>
+
+    <section>
+        <h3>Gráfico de Experiencia Laboral</h3>
+        <p>Distribución del tiempo (en meses) dedicado a principales proyectos y roles en Seguridad Industrial e Información.</p>
+        <div class="chart-container">
+            <canvas id="experienciaChart"></canvas>
+        </div>
+    </section>
+
+    <section>
+        <h3>Experiencia Destacada</h3>
+        <ul>
+            <li><strong>Practicante en SSMA - EMBOL (Coca-Cola)</strong> | <em>Ene 2026 - Actualidad</em> <br>Gestión de Salud, Seguridad y Medio Ambiente.</li>
+            <li><strong>Consultora en Seguridad Ocupacional - Eq. Multidisciplinario Rodríguez</strong> | <em>Nov 2024 - May 2025</em> <br>Asesoría para Import Exporta Ferma y Corimex Ltda.</li>
+            <li><strong>Consultorías de Línea - Instituto Nacional de Estadística (INE)</strong> | <em>Ago 2023 - Jun 2025</em> <br>Técnico en Contrastación, Supervisor de Verificación y Técnico Registrador para el Censo de Población y Vivienda.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Educación y Certificaciones</h3>
+        <ul>
+            <li><strong>Licenciatura en Ingeniería Ambiental</strong> - UDABOL (2017-2021)</li>
+            <li><strong>Diplomado en Seguridad Industrial y Salud en el Trabajo</strong> - SIAC Bolivia / USFA (2023)</li>
+            <li><strong>Diplomado en Sistemas Integrados de Gestión Ambiental</strong> - UDABOL (2023)</li>
+            <li><strong>Curso Seguridad Industrial</strong> - IBNORCA (Feb-Mar 2026)</li>
+            <li><strong>Inglés (Nivel Superior)</strong> - Centro Boliviano Americano (2014-2017)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Aptitudes Clave</h3>
+        <div class="skills-grid">
+            <div class="skill-item">Liderazgo</div>
+            <div class="skill-item">Toma de Decisiones</div>
+            <div class="skill-item">Proactividad</div>
+            <div class="skill-item">Trabajo en Equipo</div>
+            <div class="skill-item">Responsabilidad</div>
+        </div>
+    </section>
+</div>
+
+<script>
+    const ctx = document.getElementById('experienciaChart').getContext('2d');
+    
+    // Datos basados en el CV (Aproximación en meses para visualización)
+    const experienciaData = {
+        labels: ['EMBOL SSMA', 'Consultora Seg. Ocupacional', 'INE (Varios Cargos)'],
+        datasets: [{
+            label: 'Meses de Experiencia',
+            data: [6, 7, 22], // Datos aproximados calculados a partir de las fechas
+            backgroundColor: [
+                '#F40009', // Rojo Coca-Cola para EMBOL
+                '#5c0000', // Rojo oscuro
+                '#B0BEC5'  // Gris industrial
+            ],
+            borderColor: [
+                '#b30006',
+                '#330000',
+                '#78909C'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    const config = {
+        type: 'bar', // Tipo de gráfico (barras)
+        data: experienciaData,
+        options: {
+            indexAxis: 'y', // Hace que el gráfico sea horizontal
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: 'Duración de proyectos (Meses)',
+                    font: { size: 16 }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    title: { display: true, text: 'Meses' }
+                }
+            }
+        }
+    };
+
+    new Chart(ctx, config);
+</script>
+
+</body>
+</html>
