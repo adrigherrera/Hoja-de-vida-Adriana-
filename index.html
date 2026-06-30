@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Adriana Gonzales Herrera | Seguridad Industrial</title>
+    <!-- Importar fuente de Google (Roboto) -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Importar Chart.js para el gráfico de experiencia -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
-        /* Paleta de colores sutil - Temática Coca-Cola / Industrial */
+        /* Nueva paleta de colores: Profesional, Plomo y Rojo */
         :root {
-            --bg-red: #8B0000; /* Rojo oscuro dominante y elegante */
-            --accent-red: #F40009; /* Rojo clásico sutil para detalles */
-            --text-light: #F8F9FA;
-            --steel-gray: #B0BEC5; /* Toque industrial */
-            --card-bg: rgba(255, 255, 255, 0.08); /* Efecto cristal para legibilidad */
+            --bg-plomo: #F4F5F7; /* Plomo muy bajito/Gris claro para el fondo */
+            --text-black: #212121; /* Negro suave para evitar fatiga visual */
+            --text-gray: #546E7A; /* Plomo oscuro para subtítulos */
+            --accent-red: #D32F2F; /* Rojo corporativo (estilo Coca-Cola sutil) */
+            --card-bg: #FFFFFF; /* Fondo de la hoja en blanco puro */
+            --border-color: #E0E0E0; /* Líneas divisorias plomas */
         }
 
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, var(--bg-red) 0%, #5c0000 100%);
-            color: var(--text-light);
+            background-color: var(--bg-plomo);
+            color: var(--text-black);
             margin: 0;
             padding: 20px;
             line-height: 1.6;
@@ -31,55 +34,63 @@
             margin: 0 auto;
             background: var(--card-bg);
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border-top: 4px solid var(--accent-red);
-            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra suave */
+            border-top: 6px solid var(--accent-red); /* Detalle rojo en la parte superior */
         }
 
         h1 {
             font-size: 2.5em;
             margin-bottom: 5px;
+            color: var(--accent-red);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border-bottom: 2px solid var(--steel-gray);
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
         }
 
         h2 {
-            color: var(--steel-gray);
-            font-weight: 300;
+            color: var(--text-gray);
+            font-weight: 400;
             margin-top: 0;
             font-size: 1.2em;
         }
 
         h3 {
-            color: white;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
+            color: var(--accent-red);
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 5px;
             margin-top: 30px;
+            font-size: 1.4em;
+        }
+
+        p, li {
+            color: var(--text-black);
         }
 
         .contact-info {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             margin-bottom: 30px;
-            font-size: 0.9em;
+            font-size: 0.95em;
         }
 
         .contact-info span {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 5px 10px;
+            background: var(--bg-plomo);
+            color: var(--text-black);
+            padding: 6px 12px;
             border-radius: 4px;
+            border: 1px solid var(--border-color);
+            font-weight: 500;
         }
 
         .chart-container {
-            background: white; /* Fondo blanco solo para el gráfico para que sea legible */
+            background: #FAFAFA; /* Un plomo súper ligero para destacar el gráfico */
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
         }
 
         .skills-grid {
@@ -89,21 +100,29 @@
         }
 
         .skill-item {
-            background: rgba(244, 0, 9, 0.2);
+            background: var(--card-bg);
             border: 1px solid var(--accent-red);
+            color: var(--accent-red);
             padding: 10px;
             text-align: center;
             border-radius: 6px;
             font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: var(--accent-red);
+            color: var(--card-bg);
         }
 
         a {
-            color: var(--text-light);
+            color: var(--accent-red);
             text-decoration: none;
+            font-weight: bold;
         }
         
         a:hover {
-            color: var(--steel-gray);
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -167,23 +186,24 @@
     </section>
 </div>
 
+<!-- Script para inicializar el gráfico -->
 <script>
     const ctx = document.getElementById('experienciaChart').getContext('2d');
     
-    // Datos basados en el CV (Aproximación en meses para visualización)
+    // Datos basados en el CV
     const experienciaData = {
         labels: ['EMBOL SSMA', 'Consultora Seg. Ocupacional', 'INE (Varios Cargos)'],
         datasets: [{
             label: 'Meses de Experiencia',
-            data: [6, 7, 22], // Datos aproximados calculados a partir de las fechas
+            data: [6, 7, 22],
             backgroundColor: [
-                '#F40009', // Rojo Coca-Cola para EMBOL
-                '#5c0000', // Rojo oscuro
-                '#B0BEC5'  // Gris industrial
+                '#D32F2F', // Rojo corporativo para EMBOL
+                '#78909C', // Plomo medio para consultoría
+                '#B0BEC5'  // Plomo claro para INE
             ],
             borderColor: [
-                '#b30006',
-                '#330000',
+                '#B71C1C',
+                '#546E7A',
                 '#78909C'
             ],
             borderWidth: 1
@@ -191,23 +211,28 @@
     };
 
     const config = {
-        type: 'bar', // Tipo de gráfico (barras)
+        type: 'bar', 
         data: experienciaData,
         options: {
-            indexAxis: 'y', // Hace que el gráfico sea horizontal
+            indexAxis: 'y', 
             responsive: true,
             plugins: {
                 legend: { display: false },
                 title: {
                     display: true,
                     text: 'Duración de proyectos (Meses)',
-                    font: { size: 16 }
+                    font: { size: 16, family: 'Roboto' },
+                    color: '#212121'
                 }
             },
             scales: {
                 x: {
                     beginAtZero: true,
-                    title: { display: true, text: 'Meses' }
+                    title: { display: true, text: 'Meses', color: '#546E7A' },
+                    ticks: { color: '#212121' }
+                },
+                y: {
+                    ticks: { color: '#212121', font: { weight: 'bold' } }
                 }
             }
         }
