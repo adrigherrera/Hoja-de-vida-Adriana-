@@ -1,394 +1,621 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual SYSO - Expediente Adriana Gonzales Herrera</title>
-    <!-- Importar fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <style>
-        /* Paleta de colores */
-        :root {
-            --bg-plomo: #F4F5F7; 
-            --text-black: #212121; 
-            --text-gray: #546E7A; 
-            --accent-red: #D32F2F; 
-            --card-bg: #FFFFFF; 
-            --border-color: #E0E0E0; 
-            --border-dark: #212121;
-        }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bg-plomo);
-            color: var(--text-black);
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 4px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 2px solid var(--border-dark); /* Borde estilo documento impreso */
-        }
+<title>Adriana Gonzales | Ingeniera Ambiental</title>
 
-        /* DISEÑO DE CABECERA DE MANUAL ISO */
-        .hazard-tape {
-            height: 12px;
-            background: repeating-linear-gradient(
-                45deg,
-                var(--accent-red),
-                var(--accent-red) 15px,
-                var(--card-bg) 15px,
-                var(--card-bg) 30px
-            );
-            border-bottom: 2px solid var(--border-dark);
-            border-top: 2px solid var(--border-dark);
-            margin-bottom: 20px;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-        .manual-header {
-            display: flex;
-            border: 2px solid var(--border-dark);
-            margin-bottom: 30px;
-        }
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        .manual-title {
-            flex: 2;
-            padding: 15px;
-            border-right: 2px solid var(--border-dark);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .manual-title h1 {
-            font-size: 1.8em;
-            margin: 0;
-            color: var(--accent-red);
-            text-transform: uppercase;
-            border-bottom: none;
-            padding-bottom: 0;
-        }
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
 
-        .manual-title h2 {
-            font-size: 1em;
-            margin: 5px 0 0 0;
-            color: var(--text-black);
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+<link rel="stylesheet" href="style.css">
 
-        .manual-meta {
-            flex: 1;
-            padding: 10px 15px;
-            font-family: 'Space Mono', monospace; /* Letra tipo máquina de escribir para códigos */
-            font-size: 0.85em;
-            background-color: #FAFAFA;
-        }
-
-        .manual-meta div {
-            border-bottom: 1px solid var(--border-color);
-            padding: 5px 0;
-        }
-
-        .manual-meta div:last-child {
-            border-bottom: none;
-        }
-
-        /* SECCIONES DEL MANUAL */
-        h3 {
-            color: var(--card-bg);
-            background-color: var(--accent-red);
-            padding: 8px 15px;
-            margin-top: 40px;
-            font-size: 1.2em;
-            text-transform: uppercase;
-            border: 2px solid var(--border-dark);
-            display: inline-block;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9em;
-            background: #FAFAFA;
-            padding: 15px;
-            border: 1px solid var(--border-dark);
-        }
-
-        /* LÍNEA DE TIEMPO (RUTA DE INSPECCIÓN) */
-        .timeline {
-            position: relative;
-            margin: 20px 0 20px 15px;
-            padding-left: 30px;
-            border-left: 3px solid var(--text-gray);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .timeline-item::before {
-            content: '⚠️'; /* Icono de advertencia en lugar de un punto simple */
-            font-size: 1.2em;
-            position: absolute;
-            left: -42px;
-            top: 2px;
-            background-color: var(--card-bg);
-            border-radius: 50%;
-        }
-
-        .timeline-date {
-            font-weight: 700;
-            color: var(--accent-red);
-            font-size: 0.95em;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            font-family: 'Space Mono', monospace;
-        }
-
-        .timeline-content h4 {
-            margin: 0 0 5px 0;
-            font-size: 1.2em;
-            color: var(--text-black);
-            text-transform: uppercase;
-        }
-
-        .timeline-content h5 {
-            margin: 0 0 10px 0;
-            font-size: 1em;
-            color: var(--text-gray);
-            font-weight: 500;
-        }
-
-        .timeline-sublist {
-            margin-top: 10px;
-            padding-left: 15px;
-            border-left: 2px dashed var(--border-dark);
-            list-style-type: none;
-        }
-        
-        .timeline-sublist li {
-            position: relative;
-            margin-bottom: 8px;
-            font-size: 0.95em;
-        }
-
-        .timeline-sublist li::before {
-            content: '►';
-            color: var(--accent-red);
-            position: absolute;
-            left: -20px;
-            font-size: 0.8em;
-        }
-
-        /* GRÁFICO Y HABILIDADES */
-        .chart-container {
-            background: #FAFAFA;
-            padding: 20px;
-            border: 2px solid var(--border-dark);
-            margin: 20px 0;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-        }
-
-        .skill-item {
-            background: var(--card-bg);
-            border: 2px solid var(--border-dark);
-            color: var(--text-black);
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9em;
-            border-left: 6px solid var(--accent-red);
-        }
-
-        a {
-            color: var(--accent-red);
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
+
 <body>
 
 <div class="container">
-    
-    <!-- CABECERA DE MANUAL ISO -->
-    <div class="hazard-tape"></div>
-    <div class="manual-header">
-        <div class="manual-title">
-            <h2>Manual de Seguridad y Procedimientos</h2>
-            <h1>Expediente: Adriana Gonzales</h1>
-        </div>
-        <div class="manual-meta">
-            <div><strong>CÓDIGO:</strong> SYSO-AGH-001</div>
-            <div><strong>REVISIÓN:</strong> 01 - ACTUALIZADA</div>
-            <div><strong>ÁREA:</strong> PREVENCIÓN / SYSO</div>
-            <div><strong>ESTADO:</strong> APROBADO</div>
-        </div>
-    </div>
-    <div class="hazard-tape"></div>
 
-    <section>
-        <h3>1.0 Identificación del Personal Operativo</h3>
-        <div class="contact-info">
-            <div><strong>ID PROFESIONAL:</strong> Ing. Ambiental</div>
-            <div><strong>REGISTRO RNI:</strong> 53304</div>
-            <div><strong>REGISTRO SYSO:</strong> 6415 "C"</div>
-            <div><strong>BASE OP.:</strong> La Paz, Bolivia</div>
-            <div><strong>CONTACTO:</strong> 60507792</div>
-            <div><strong>CORREO:</strong> <a href="mailto:herreragonadri@gmail.com">herreragonadri@gmail.com</a></div>
-        </div>
-        <p><strong>RESUMEN TÉCNICO:</strong> Profesionista habilitada con sólidos conocimientos y registros nacionales en Higiene, Seguridad Ocupacional y Medicina del Trabajo. Capacitada para liderar inspecciones, gestionar normativas ambientales y ejecutar toma de decisiones estratégicas para asegurar cero incidentes en entornos laborales.</p>
-    </section>
+<!--======================
+HEADER
+=======================-->
 
-    <section>
-        <h3>2.0 Registro de Operaciones (Experiencia)</h3>
-        
-        <div class="timeline">
-            <!-- Item 1 -->
-            <div class="timeline-item">
-                <div class="timeline-date">[ ENE 2026 - ACTUALIDAD ]</div>
-                <div class="timeline-content">
-                    <h4>Practicante en SSMA</h4>
-                    <h5>EMBOL S.A. (Operaciones Coca-Cola)</h5>
-                    <p>Apoyo en la gestión operativa, supervisión y control documental de normativas de Salud, Seguridad y Medio Ambiente.</p>
-                </div>
-            </div>
+<header class="header">
 
-            <!-- Item 2 -->
-            <div class="timeline-item">
-                <div class="timeline-date">[ NOV 2024 - MAY 2025 ]</div>
-                <div class="timeline-content">
-                    <h4>Consultor en Seguridad Ocupacional</h4>
-                    <h5>Equipo Multidisciplinario Rodriguez</h5>
-                    <p>Consultorías, auditorías y asesoramiento especializado para Import Exporta Ferma y Corimex Ltda.</p>
-                </div>
-            </div>
+<div class="profile">
 
-            <!-- Item 3 -->
-            <div class="timeline-item">
-                <div class="timeline-date">[ AGO 2023 - JUN 2025 ]</div>
-                <div class="timeline-content">
-                    <h4>Consultorías de Línea (Gestión de Datos)</h4>
-                    <h5>Instituto Nacional de Estadística (INE)</h5>
-                    <ul class="timeline-sublist">
-                        <li><strong>Técnico en Contrastación de Datos</strong> (Jun 2025)</li>
-                        <li><strong>Supervisor de Verificación</strong> (Abr 2024 - Oct 2024)</li>
-                        <li><strong>Técnico Registrador</strong> (Nov 2023 - Mar 2024)</li>
-                        <li><strong>Transcriptor de Información</strong> (Ago 2023 - Sep 2024)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="photo">
 
-    <section>
-        <h3>3.0 Auditoría de Tiempos Operativos</h3>
-        <p>Distribución cuantitativa (en meses) de las misiones y proyectos ejecutados.</p>
-        <div class="chart-container">
-            <canvas id="experienciaChart"></canvas>
-        </div>
-    </section>
+<i class="fa-solid fa-user"></i>
 
-    <section>
-        <h3>4.0 Capacitación y Normativas Técnicas</h3>
-        <ul>
-            <li><strong>Ingeniería Ambiental (Licenciatura)</strong> - UDABOL (2017-2021)</li>
-            <li><strong>Diplomado: Seguridad Industrial y Salud en el Trabajo</strong> - SIAC Bolivia / USFA (2023)</li>
-            <li><strong>Diplomado: Sistemas Integrados de Gestión Ambiental</strong> - UDABOL (2023)</li>
-            <li><strong>Curso: Seguridad Industrial</strong> - IBNORCA (Feb-Mar 2026)</li>
-            <li><strong>Certificación de Idioma: Inglés Superior</strong> - Centro Boliviano Americano (2014-2017)</li>
-        </ul>
-    </section>
+<!-- Si deseas usar fotografía reemplaza el icono por:
+<img src="img/foto.jpg">
+-->
 
-    <section>
-        <h3>5.0 Competencias de Prevención y Liderazgo</h3>
-        <div class="skills-grid">
-            <div class="skill-item">Liderazgo de Brigadas</div>
-            <div class="skill-item">Toma de Decisiones</div>
-            <div class="skill-item">Respuesta Proactiva</div>
-            <div class="skill-item">Trabajo en Equipo</div>
-            <div class="skill-item">Responsabilidad SYSO</div>
-        </div>
-    </section>
 </div>
 
-<!-- Script para inicializar el gráfico -->
-<script>
-    const ctx = document.getElementById('experienciaChart').getContext('2d');
-    
-    const experienciaData = {
-        labels: ['EMBOL SSMA', 'Consultora Seg. Ocupacional', 'INE (Varios Cargos)'],
-        datasets: [{
-            label: 'Meses Operativos',
-            data: [6, 7, 22],
-            backgroundColor: [
-                '#D32F2F', // Rojo
-                '#546E7A', // Plomo oscuro
-                '#B0BEC5'  // Plomo claro
-            ],
-            borderColor: '#212121', // Borde negro para estilo manual
-            borderWidth: 2
-        }]
-    };
+<div class="profile-info">
 
-    const config = {
-        type: 'bar', 
-        data: experienciaData,
-        options: {
-            indexAxis: 'y', 
-            responsive: true,
-            plugins: {
-                legend: { display: false },
-                title: {
-                    display: true,
-                    text: 'TIEMPO ACTIVO EN PROYECTOS (MESES)',
-                    font: { size: 14, family: 'Space Mono', weight: 'bold' },
-                    color: '#212121'
-                }
-            },
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    title: { display: true, text: 'MESES', color: '#212121', font: { family: 'Space Mono', weight: 'bold' } },
-                    ticks: { color: '#212121', font: { family: 'Space Mono' } },
-                    grid: { color: '#E0E0E0' }
-                },
-                y: {
-                    ticks: { color: '#212121', font: { weight: 'bold', family: 'Roboto' } }
-                }
-            }
-        }
-    };
+<h1>Adriana Gonzales Herrera</h1>
 
-    new Chart(ctx, config);
-</script>
+<h2>Ingeniera Ambiental</h2>
+
+<p class="subtitle">
+
+Seguridad Industrial • Salud Ocupacional • Medio Ambiente
+
+</p>
+
+</div>
+
+</div>
+
+</header>
+
+<!--======================
+DATOS PERSONALES
+=======================-->
+
+<section class="card">
+
+<h3>
+
+<i class="fa-solid fa-address-card"></i>
+
+Información Personal
+
+</h3>
+
+<div class="info-grid">
+
+<div>
+
+<strong>Ciudad</strong>
+
+<p>La Paz - Bolivia</p>
+
+</div>
+
+<div>
+
+<strong>Registro SIB</strong>
+
+<p>53304</p>
+
+</div>
+
+<div>
+
+<strong>Registro SYSO</strong>
+
+<p>Categoría C Nº 6415</p>
+
+</div>
+
+<div>
+
+<strong>Disponibilidad</strong>
+
+<p>Inmediata para Santa Cruz</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--======================
+PERFIL
+=======================-->
+
+<section class="card">
+
+<h3>
+
+<i class="fa-solid fa-user-tie"></i>
+
+Perfil Profesional
+
+</h3>
+
+<p>
+
+Ingeniera Ambiental con experiencia en Seguridad Industrial,
+
+Salud Ocupacional y Gestión Ambiental.
+
+Actualmente desarrollo mi pasantía en
+
+<strong>EMBOL S.A.</strong>
+
+dentro del Área de
+
+<strong>Procesos y Mantenimiento</strong>,
+
+apoyando la gestión de Seguridad,
+
+Salud y Medio Ambiente,
+
+implementación del programa
+
+<strong>Zero Waste</strong>,
+
+gestión integral de residuos,
+
+elaboración de procedimientos y Lecciones de Un Punto (LUP),
+
+inspecciones de seguridad,
+
+campañas preventivas,
+
+gestión documental y seguimiento de actividades operativas.
+
+Me caracterizo por mi organización,
+
+aprendizaje continuo,
+
+trabajo en equipo y orientación a la mejora continua.
+
+</p>
+
+</section>
+
+<!--======================
+EXPERIENCIA
+=======================-->
+
+<section class="card">
+
+<h3>
+
+<i class="fa-solid fa-briefcase"></i>
+
+Experiencia Profesional
+
+</h3>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="timeline-date">
+
+2026 - Actualidad
+
+</div>
+
+<div class="timeline-content">
+
+<h4>
+
+Pasante SSMA
+
+</h4>
+
+<h5>
+
+EMBOL S.A.
+
+Área de Procesos y Mantenimiento
+
+</h5>
+
+<ul>
+
+<li>Apoyo en la gestión de Seguridad Industrial, Salud Ocupacional y Medio Ambiente.</li>
+
+<li>Implementación y seguimiento del programa Zero Waste.</li>
+
+<li>Gestión integral de residuos.</li>
+
+<li>Elaboración de procedimientos y Lecciones de Un Punto (LUP).</li>
+
+<li>Desarrollo de campañas de seguridad.</li>
+
+<li>Inspecciones de seguridad en planta.</li>
+
+<li>Gestión documental SSMA.</li>
+
+<li>Seguimiento al uso de Equipos de Protección Personal.</li>
+
+<li>Apoyo en investigación y seguimiento de incidentes.</li>
+
+</ul>
+    <div class="timeline-item">
+
+            <div class="timeline-date">
+                Nov 2024 – May 2025
+            </div>
+
+            <div class="timeline-content">
+
+                <h4>Consultora en Seguridad Ocupacional</h4>
+
+                <h5>Equipo Multidisciplinario Rodríguez</h5>
+
+                <ul>
+
+                    <li>Consultorías en Seguridad Industrial.</li>
+
+                    <li>Asesoramiento técnico en cumplimiento normativo.</li>
+
+                    <li>Elaboración de documentación de Seguridad y Medio Ambiente.</li>
+
+                    <li>Apoyo en inspecciones y gestión preventiva.</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-date">
+                Ago 2023 – Jun 2025
+            </div>
+
+            <div class="timeline-content">
+
+                <h4>Instituto Nacional de Estadística (INE)</h4>
+
+                <ul>
+
+                    <li>Técnico en Contrastación de Datos.</li>
+
+                    <li>Supervisor de Verificación.</li>
+
+                    <li>Técnico Registrador.</li>
+
+                    <li>Transcriptor de Información.</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+FORMACIÓN ACADÉMICA
+========================== -->
+
+<section class="card">
+
+<h3>
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+Formación Académica
+
+</h3>
+
+<div class="education">
+
+<div class="education-item">
+
+<h4>Ingeniería Ambiental</h4>
+
+<p>Universidad de Aquino Bolivia (UDABOL)</p>
+
+<span>2017 – 2021</span>
+
+</div>
+
+<div class="education-item">
+
+<h4>Diplomado en Seguridad Industrial y Salud en el Trabajo</h4>
+
+<p>SIAC Bolivia / USFA</p>
+
+<span>2023</span>
+
+</div>
+
+<div class="education-item">
+
+<h4>Diplomado en Sistemas Integrados de Gestión Ambiental</h4>
+
+<p>UDABOL</p>
+
+<span>2023</span>
+
+</div>
+
+<div class="education-item">
+
+<h4>Curso de Seguridad Industrial</h4>
+
+<p>IBNORCA</p>
+
+<span>2026</span>
+
+</div>
+
+<div class="education-item">
+
+<h4>Inglés Superior</h4>
+
+<p>Centro Boliviano Americano (CBA)</p>
+
+<span>2014 – 2017</span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================
+CERTIFICACIONES
+========================== -->
+
+<section class="card">
+
+<h3>
+
+<i class="fa-solid fa-certificate"></i>
+
+Registros Profesionales
+
+</h3>
+
+<div class="certificados">
+
+<div class="cert">
+
+<h4>Sociedad de Ingenieros de Bolivia</h4>
+
+<p>Registro Profesional Nº 53304</p>
+
+</div>
+
+<div class="cert">
+
+<h4>Ministerio de Trabajo</h4>
+
+<p>Registro SYSO Categoría C Nº 6415</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================
+LOGROS
+========================== -->
+
+<section class="card">
+
+<h3>
+
+<i class="fa-solid fa-award"></i>
+
+Logros Destacados
+
+</h3>
+
+<ul class="achievement">
+
+<li>Participación en la implementación del programa Zero Waste.</li>
+
+<li>Gestión integral de residuos industriales.</li>
+
+<li>Elaboración de procedimientos y Lecciones de Un Punto (LUP).</li>
+
+<li>Desarrollo de campañas de Seguridad Industrial.</li>
+
+<li>Apoyo en inspecciones de Seguridad y Medio Ambiente.</li>
+
+<li>Apoyo en la gestión documental del sistema SSMA.</li>
+
+</ul>
+
+</section>
+    <section class="card">
+
+<h3>
+<i class="fa-solid fa-lightbulb"></i>
+Competencias
+</h3>
+
+<div class="skills">
+
+<span>Seguridad Industrial</span>
+
+<span>Salud Ocupacional</span>
+
+<span>Gestión Ambiental</span>
+
+<span>Zero Waste</span>
+
+<span>Gestión de Residuos</span>
+
+<span>Lecciones de Un Punto (LUP)</span>
+
+<span>Investigación de Incidentes</span>
+
+<span>LOTO</span>
+
+<span>Inspecciones SSMA</span>
+
+<span>Normativa Boliviana</span>
+
+<span>Trabajo en Equipo</span>
+
+<span>Mejora Continua</span>
+
+</div>
+
+</section>
+
+<!-- ==========================
+SOFTWARE
+========================== -->
+
+<section class="card">
+
+<h3>
+
+<i class="fa-solid fa-laptop-code"></i>
+
+Software
+
+</h3>
+
+<div class="software-grid">
+
+<div class="software-item">
+Microsoft Office
+</div>
+
+<div class="software-item">
+Microsoft Excel
+</div>
+
+<div class="software-item">
+Microsoft Word
+</div>
+
+<div class="software-item">
+PowerPoint
+</div>
+
+<div class="software-item">
+Canva
+</div>
+
+<div class="software-item">
+AutoCAD (Básico)
+</div>
+
+<div class="software-item">
+ErgoSoft Pro
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================
+IDIOMAS
+========================== -->
+
+<section class="card">
+
+<h3>
+
+<i class="fa-solid fa-language"></i>
+
+Idiomas
+
+</h3>
+
+<div class="languages">
+
+<div>
+
+<strong>Español</strong>
+
+<p>Nativo</p>
+
+</div>
+
+<div>
+
+<strong>Inglés</strong>
+
+<p>Nivel Intermedio - Avanzado</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================
+CONTACTO
+========================== -->
+
+<section class="card">
+
+<h3>
+
+<i class="fa-solid fa-envelope"></i>
+
+Contacto
+
+</h3>
+
+<div class="contact-grid">
+
+<div>
+
+<i class="fa-solid fa-location-dot"></i>
+
+La Paz, Bolivia
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-phone"></i>
+
+60507792
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-envelope"></i>
+
+herreragonadri@gmail.com
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-briefcase"></i>
+
+Disponibilidad inmediata para Santa Cruz
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Adriana Gonzales Herrera
+
+</p>
+
+<p>
+
+Ingeniera Ambiental | Seguridad Industrial | Salud Ocupacional | Medio Ambiente
+
+</p>
+
+</footer>
+
+</div>
 
 </body>
+
 </html>
