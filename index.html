@@ -6,17 +6,17 @@
     <title>CV - Adriana Gonzales Herrera</title>
     <!-- Fuentes Modernas -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* Nueva Paleta de Colores: Tech / Soft Corporate */
+        /* Paleta de Colores: Eco / Green Tech */
         :root {
-            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-            --text-main: #2d3748;
-            --text-muted: #718096;
-            --accent-blue: #2563eb;
-            --accent-light: #eff6ff;
+            --bg-gradient: linear-gradient(135deg, #f4f7f6 0%, #e5eae8 100%);
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --accent-green: #0f766e; /* Verde Esmeralda Oscuro */
+            --accent-light: #f0fdf4; /* Fondo Verde Sutil */
+            --accent-brand: #10b981; /* Verde Menta para detalles */
             --card-bg: #ffffff;
-            --border-color: #e2e8f0;
+            --border-color: #e5e7eb;
         }
 
         body {
@@ -35,7 +35,7 @@
             background: var(--card-bg);
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
             border: 1px solid var(--border-color);
         }
 
@@ -60,19 +60,20 @@
         .profile-title h2 {
             font-size: 1.2em;
             margin: 8px 0 0 0;
-            color: var(--accent-blue);
+            color: var(--accent-green);
             font-weight: 500;
         }
 
         .profile-status {
             font-size: 0.85em;
             background-color: var(--accent-light);
-            color: var(--accent-blue);
+            color: var(--accent-green);
             padding: 6px 12px;
             border-radius: 20px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            border: 1px solid #bbf7d0;
         }
 
         /* SECCIONES */
@@ -83,7 +84,7 @@
             margin-top: 35px;
             margin-bottom: 20px;
             padding-bottom: 8px;
-            border-bottom: 2px solid var(--accent-blue);
+            border-bottom: 2px solid var(--accent-green);
             display: block;
             width: 100%;
         }
@@ -94,7 +95,7 @@
             gap: 15px;
             margin-bottom: 25px;
             font-size: 0.9em;
-            background: #f8fafc;
+            background: #f9fafb;
             padding: 20px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
@@ -111,6 +112,7 @@
         .summary-text {
             font-size: 1.05em;
             color: var(--text-muted);
+            margin-bottom: 15px;
         }
 
         /* LÍNEA DE TIEMPO ELEGANTE */
@@ -123,7 +125,7 @@
 
         .timeline-item {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .timeline-item::before {
@@ -133,14 +135,14 @@
             top: 6px;
             width: 10px;
             height: 10px;
-            background-color: var(--accent-blue);
+            background-color: var(--accent-green);
             border-radius: 50%;
             border: 2px solid var(--card-bg);
         }
 
         .timeline-date {
             font-weight: 600;
-            color: var(--accent-blue);
+            color: var(--accent-green);
             font-size: 0.85em;
             margin-bottom: 5px;
             letter-spacing: 0.5px;
@@ -178,21 +180,13 @@
 
         .timeline-sublist li::before {
             content: '•';
-            color: var(--accent-blue);
+            color: var(--accent-brand);
             position: absolute;
             left: -15px;
             font-weight: bold;
         }
 
-        /* GRÁFICO Y HABILIDADES */
-        .chart-container {
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            margin: 20px 0;
-        }
-
+        /* HABILIDADES */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -201,16 +195,18 @@
 
         .skill-item {
             background: var(--accent-light);
-            color: var(--accent-blue);
+            color: var(--accent-green);
             padding: 8px 16px;
             border-radius: 20px;
             font-weight: 500;
             font-size: 0.9em;
+            border: 1px solid #d1fae5;
         }
 
         a {
-            color: var(--accent-blue);
+            color: var(--accent-green);
             text-decoration: none;
+            font-weight: 500;
         }
 
         a:hover {
@@ -244,15 +240,33 @@
     </section>
 
     <section>
+        <h3>Capacidades y Aptitudes Clave</h3>
+        <p class="summary-text">Especialista con un enfoque integral centrado en la cultura de prevención de riesgos laborales y la sostenibilidad ambiental. Poseo alta capacidad analítica para la evaluación ergonómica y el control operacional en plantas industriales, orientada al cumplimiento estricto de normativas vigentes. Destaco por mi destreza en la gestión integral de residuos bajo filosofías de economía circular, proactividad en la investigación de incidentes y un sólido liderazgo en la implementación de campañas de concientización orientadas a mitigar impactos ambientales y riesgos ocupacionales.</p>
+    </section>
+
+    <section>
         <h3>Experiencia Profesional</h3>
         <div class="timeline">
-            <!-- Item 1 -->
+            <!-- Item 1: EMBOL -->
             <div class="timeline-item">
                 <div class="timeline-date">ENE 2026 - ACTUALIDAD</div>
                 <div class="timeline-content">
                     <h4>Practicante en SSMA</h4>
                     <h5>EMBOL S.A. (Operaciones Coca-Cola)</h5>
-                    <p style="color: var(--text-muted); margin: 0;">Apoyo en la gestión operativa, supervisión y control documental de normativas de Salud, Seguridad y Medio Ambiente.</p>
+                    <p style="color: var(--text-muted); margin: 0 0 10px 0;">Desempeño técnico enfocado en la supervisión operativa y cumplimiento normativo en Salud, Seguridad Industrial y Medio Ambiente, ejecutando las siguientes funciones:</p>
+                    <ul class="timeline-sublist">
+                        <li><strong>Gestión de Seguridad Industrial, Salud Ocupacional y Medio Ambiente.</strong></li>
+                        <li><strong>Apoyo estratégico directo al área de Procesos y Mantenimiento.</strong></li>
+                        <li><strong>Implementación, control y seguimiento riguroso del programa Zero Waste.</strong></li>
+                        <li><strong>Gestión integral de residuos sólidos e industriales dentro de la planta.</strong></li>
+                        <li><strong>Elaboración de LUP (Lecciones de Un Punto) y diseño de procedimientos operativos estándar.</strong></li>
+                        <li><strong>Planificación y ejecución de campañas de seguridad y concientización interna.</strong></li>
+                        <li><strong>Realización de inspecciones de seguridad en áreas críticas de manufactura.</strong></li>
+                        <li><strong>Control y actualización de la gestión documental SSMA de la compañía.</strong></li>
+                        <li><strong>Fiscalización y seguimiento estricto al uso correcto de Equipos de Protección Personal (EPP).</strong></li>
+                        <li><strong>Apoyo analítico en los procesos de investigación de incidentes laborales.</strong></li>
+                        <li><strong>Desarrollo de evaluaciones ergonómicas especializadas mediante metodologías REBA y OWAS.</strong></li>
+                    </ul>
                 </div>
             </div>
             <!-- Item 2 -->
@@ -282,14 +296,6 @@
     </section>
 
     <section>
-        <h3>Distribución de Tiempos Operativos</h3>
-        <p style="color: var(--text-muted);">Visualización cuantitativa en meses de los proyectos ejecutados.</p>
-        <div class="chart-container">
-            <canvas id="experienciaChart"></canvas>
-        </div>
-    </section>
-
-    <section>
         <h3>Educación y Certificaciones</h3>
         <ul style="padding-left: 20px; color: var(--text-muted);">
             <li style="margin-bottom: 10px;"><strong style="color: var(--text-main);">Ingeniería Ambiental (Licenciatura)</strong> - UDABOL (2017-2021)</li>
@@ -301,7 +307,7 @@
     </section>
 
     <section>
-        <h3>Competencias Clave</h3>
+        <h3>Competencias Organizacionales</h3>
         <div class="skills-grid">
             <div class="skill-item">Liderazgo de Brigadas</div>
             <div class="skill-item">Toma de Decisiones</div>
@@ -313,52 +319,6 @@
 
 </div>
 
-<script>
-    const ctx = document.getElementById('experienciaChart').getContext('2d');
-    const experienciaData = {
-        labels: ['EMBOL SSMA', 'Consultora Seg. Ocupacional', 'INE (Varios Cargos)'],
-        datasets: [{
-            label: 'Meses Operativos',
-            data: [6, 7, 22],
-            backgroundColor: [
-                '#2563eb', // Azul Cobalto
-                '#3b82f6', // Azul Medio
-                '#93c5fd'  // Azul Claro
-            ],
-            borderRadius: 6,
-            borderWidth: 0
-        }]
-    };
-
-    const config = {
-        type: 'bar',
-        data: experienciaData,
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            plugins: {
-                legend: { display: false },
-                title: {
-                    display: true,
-                    text: 'TIEMPO ACTIVO EN PROYECTOS (MESES)',
-                    font: { size: 13, family: 'Inter', weight: '600' },
-                    color: '#2d3748'
-                }
-            },
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    grid: { color: '#f1f5f9' },
-                    ticks: { font: { family: 'Inter' }, color: '#718096' }
-                },
-                y: {
-                    grid: { display: false },
-                    ticks: { font: { family: 'Inter', weight: '500' }, color: '#2d3748' }
-                }
-            }
-        }
-    };
-    new Chart(ctx, config);
-</script>
 </body>
 </html>
+   
