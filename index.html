@@ -3,237 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Adriana Jhana Gonzales Herrera</title>
-    <!-- Fuentes Modernas -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Hoja de Vida - Adriana Jhana Gonzales Herrera</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Paleta de Colores: Eco / Green Tech */
         :root {
-            --bg-gradient: linear-gradient(135deg, #f4f7f6 0%, #e5eae8 100%);
-            --text-main: #1f2937;
-            --text-muted: #4b5563;
-            --accent-green: #0f766e; /* Verde Esmeralda Oscuro */
-            --accent-light: #f0fdf4; /* Fondo Verde Sutil */
-            --accent-brand: #10b981; /* Verde Menta para detalles */
+            --primary-color: #008080; /* Verde Azulado / Teal */
+            --primary-light: #e6f2f2;
+            --primary-dark: #005959;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-color: #f4f7f6;
             --card-bg: #ffffff;
-            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-main);
-            margin: 0;
-            padding: 40px 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
+            padding: 20px;
         }
 
-        .container {
-            max-width: 850px;
+        .resume-container {
+            max-width: 900px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
         }
 
-        /* Encabezado */
-        header {
-            border-bottom: 2px solid var(--accent-light);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+        /* Header Layout */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
 
-        h1 {
-            color: var(--accent-green);
-            font-size: 2.2rem;
-            margin: 0 0 5px 0;
+        .profile-img-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-text h1 {
+            font-size: 2rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
         }
 
-        .subtitle {
+        .header-text h2 {
             font-size: 1.1rem;
-            color: var(--accent-brand);
-            font-weight: 600;
-            margin-top: 0;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 15px;
         }
 
         .contact-info {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: 15px;
+            font-size: 0.85rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
         }
 
-        /* Secciones */
-        section {
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: var(--accent-green);
-            font-size: 1.2rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Listas y Detalles */
-        ul {
-            padding-left: 20px;
-            margin: 0;
-        }
-
-        li {
-            margin-bottom: 8px;
-            color: var(--text-muted);
-        }
-
-        /* Experiencia y Educación */
-        .job-item, .edu-item {
-            margin-bottom: 20px;
-        }
-
-        .job-header, .edu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-        }
-
-        h3 {
-            margin: 0;
-            font-size: 1.05rem;
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        .company-name {
-            font-weight: 500;
-            color: var(--accent-green);
-            margin: 2px 0 8px 0;
-            font-size: 0.95rem;
-        }
-
-        .job-date, .edu-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            background: var(--accent-light);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        /* Habilidades */
-        .skills-grid {
+        /* Content Layout */
+        .content {
+            padding: 40px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--primary-light);
+            display: flex;
+            align-items: center;
             gap: 10px;
         }
 
-        .skill-tag {
-            background: var(--accent-light);
-            color: var(--accent-green);
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid rgba(15, 118, 110, 0.1);
+        .section-title i {
+            font-size: 1.1rem;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            .job-header, .edu-header {
+        /* Left Column */
+        .main-column section {
+            margin-bottom: 35px;
+        }
+
+        .profile-text {
+            color: var(--text-light);
+            text-align: justify;
+            font-size: 0.95rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 25px;
+            border-left: 2px solid var(--primary-light);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+
+        .item-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .item-subtitle {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .item-date {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .item-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .item-description li {
+            margin-left: 15px;
+            margin-bottom: 5px;
+        }
+
+        /* Right Column */
+        .sidebar section {
+            margin-bottom: 35px;
+        }
+
+        .skills-list, .cert-list {
+            list-style: none;
+        }
+
+        .skills-list li, .cert-list li {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skills-list i, .cert-list i {
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
                 flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
             }
-            .job-date, .edu-date {
-                margin-top: 5px;
-                display: inline-block;
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+                padding: 25px;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- ENCABEZADO / DATOS DE CONTACTO -->
-    <header>
-        <h1>Adriana Jhana Gonzales Herrera</h1>
-        <p class="subtitle">Ingeniería Industrial / Seguridad y Calidad</p>
-        <div class="contact-info">
-            <span class="contact-item">📧 adriana.gonzales@email.com</span>
-            <span class="contact-item">📱 +591 00000000</span>
-            <span class="contact-item">📍 Bolivia</span>
-        </div>
-    </header>
-
-    <!-- PERFIL PROFESIONAL -->
-    <section>
-        <h2>Perfil Profesional</h2>
-        <p style="color: var(--text-muted); margin: 0;">
-            Profesional enfocada en la gestión de seguridad industrial, control patrimonial y estandarización de procesos. Experiencia en supervisión en planta, inspección de instalaciones y gestión de incidencias orientada a la mejora continua y prevención de riesgos.
-        </p>
-    </section>
-
-    <!-- EXPERIENCIA LABORAL -->
-    <section>
-        <h2>Experiencia Laboral</h2>
-        
-        <!-- Puesto Superior: PRYSEI (EMBOL) -->
-        <div class="job-item">
-            <div class="job-header">
-                <h3>Fiscal de Seguridad</h3>
-                <span class="job-date">Julio - Actualidad</span>
+    <div class="resume-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="profile-img-container">
+                <img src="foto.jpg" alt="Adriana Jhana Gonzales Herrera" class="profile-img">
             </div>
-            <p class="company-name">Empresa PRYSEI (Trabajando para EMBOL S.A.)</p>
-            <ul class="job-details">
-                <li>Supervisión y cumplimiento de protocolos de seguridad industrial y patrimonial en instalaciones.</li>
-                <li>Control de accesos, inspección continuada de áreas críticas y gestión de incidencias.</li>
-                <li>Monitoreo del cumplimiento de normativas operativas y de prevención de riesgos laborales.</li>
-            </ul>
-        </div>
-
-        <!-- Puesto Anterior: EMBOL S.A. -->
-        <div class="job-item">
-            <div class="job-header">
-                <h3>Practicante / Pasante</h3>
-                <span class="job-date">Enero - Junio</span>
+            <div class="header-text">
+                <h1>Adriana Jhana Gonzales Herrera</h1>
+                <h2>Ingeniera Industrial | Especialista en Seguridad y Calidad</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>adriana.gonzales@email.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+591 70000000</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Bolivia</span>
+                    </div>
+                </div>
             </div>
-            <p class="company-name">EMBOL S.A.</p>
-            <ul class="job-details">
-                <li>Apoyo en el seguimiento y control de estándares operativos y de seguridad en planta.</li>
-                <li>Elaboración de reportes de inspección y registro de indicadores del área.</li>
-                <li>Colaboración en la implementación de medidas correctivas y optimización de flujos de trabajo.</li>
-            </ul>
-        </div>
-    </section>
+        </header>
 
-    <!-- HABILIDADES Y COMPETENCIAS -->
-    <section>
-        <h2>Habilidades y Competencias</h2>
-        <div class="skills-grid">
-            <div class="skill-tag">Puntualidad y responsabilidad</div>
-            <div class="skill-tag">Resolución de problemas</div>
-            <div class="skill-tag">Estandarización</div>
-            <div class="skill-tag">Seguridad Industrial</div>
-            <div class="skill-tag">Control Patrimonial</div>
-            <div class="skill-tag">Trabajo en Equipo</div>
+        <!-- MAIN CONTENT -->
+        <div class="content">
+            <!-- LEFT COLUMN -->
+            <main class="main-column">
+                <!-- PERFIL -->
+                <section>
+                    <h3 class="section-title"><i class="fa-solid fa-user"></i> Perfil Profesional</h3>
+                    <p class="profile-text">
+                        Ingeniera Industrial comprometida con la excelencia operacional, la seguridad laboral y la gestión ambiental. Con capacidad comprobada para liderar procesos de estandarización, análisis de riesgos y control de efluentes industrial. Orientada a resultados, con un alto enfoque en la resolución de problemas y la mejora continua.
+                    </p>
+                </section>
+
+                <!-- EXPERIENCIA -->
+                <section>
+                    <h3 class="section-title"><i class="fa-solid fa-briefcase"></i> Experiencia Laboral</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="item-title">Practicante de Seguridad y Calidad</div>
+                        <div class="item-subtitle">EMBOL S.A.</div>
+                        <span class="item-date">Enero - Actualidad</span>
+                        <ul class="item-description">
+                            <li>Apoyo en el seguimiento e inspección de normas de seguridad industrial en planta.</li>
+                            <li>Colaboración en la elaboración de documentación técnica y procedimientos estandarizados.</li>
+                            <li>Participación activa en brigadas de emergencia y monitoreo de indicadores del área.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- EDUCACIÓN -->
+                <section>
+                    <h3 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Educación</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="item-title">Licenciatura en Ingeniería Industrial</div>
+                        <div class="item-subtitle">Universidad Principal</div>
+                        <span class="item-date">Graduada</span>
+                    </div>
+                </section>
+            </main>
+
+            <!-- RIGHT COLUMN (SIDEBAR) -->
+            <aside class="sidebar">
+                <!-- CAPACIDADES Y ACTITUDES -->
+                <section>
+                    <h3 class="section-title"><i class="fa-solid fa-star"></i> Capacidades Clave</h3>
+                    <div class="tag-container">
+                        <span class="tag">Seguridad Industrial</span>
+                        <span class="tag">Control Patrimonial</span>
+                        <span class="tag">Liderazgo de brigadas</span>
+                        <span class="tag">Trabajo en equipo</span>
+                        <span class="tag">Gestión Ambiental</span>
+                    </div>
+                </section>
+
+                <!-- CERTIFICACIONES -->
+                <section>
+                    <h3 class="section-title"><i class="fa-solid fa-certificate"></i> Certificaciones</h3>
+                    <ul class="cert-list">
+                        <li><i class="fa-solid fa-check"></i> Registro SYSO</li>
+                        <li><i class="fa-solid fa-check"></i> Primeros Auxilios y Emergencias</li>
+                        <li><i class="fa-solid fa-check"></i> Normas ISO 9001 / 45001</li>
+                    </ul>
+                </section>
+            </aside>
         </div>
-    </section>
-</div>
+    </div>
 
 </body>
 </html>
